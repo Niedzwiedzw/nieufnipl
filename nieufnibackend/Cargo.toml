@@ -1,0 +1,7 @@
+[package]
+name = "nieufnibackend"
+version = "0.1.0"
+authors = ["niedzwiedzw <niedzwiedzwo@gmail.com>"]
+edition = "2018"
+
+[dependencies]
