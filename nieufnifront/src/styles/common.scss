@@ -1,6 +1,11 @@
 .hoverable {
   cursor: pointer;
+  transition: opacity 300ms;
   &:hover {
     opacity: 0.6;
   }
 }
+
+$standard-minimal-width: 20rem;
+$article-width: calc(2.3 * #{$standard-minimal-width});
+$mobile-threshold: $article-width;

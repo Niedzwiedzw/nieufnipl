@@ -1,8 +1,8 @@
 <template>
   <div class="Navbar">
     <router-link class="hoverable navbar-link home-link" to="/">nieufni.pl</router-link>
-    <router-link class="hoverable navbar-link" to="/artykuly">artykuły</router-link>
-    <router-link class="hoverable navbar-link" to="/redakcja">redakcja</router-link>
+    <!--<router-link class="hoverable navbar-link" to="/artykuly">artykuły</router-link>-->
+    <!--<router-link class="hoverable navbar-link" to="/redakcja">redakcja</router-link>-->
     <router-link class="hoverable navbar-link" to="/kontakt">kontakt</router-link>
   </div>
 
@@ -28,6 +28,7 @@
 
     text-decoration: none;
     color: inherit;
+    font-size: 2rem
   }
 
   .home-link {
@@ -40,6 +41,9 @@
     grid-auto-columns: 1fr;
     /*grid-gap: 2rem;*/
     /*padding: 0 2rem;*/
+
+    background-color: black;
+    color: gold;
 
     justify-items: start;
     align-items: center;
