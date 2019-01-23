@@ -30,7 +30,7 @@
 
   .ArticleContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($standard-minimal-width, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax($minimal-miniature-width, 1fr));
     grid-auto-rows: 8rem;
     grid-gap: 1rem;
     grid-area: articles;

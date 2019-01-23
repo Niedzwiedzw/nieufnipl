@@ -42,7 +42,7 @@
     grid-area: image;
     img {
       object-fit: cover;
-      width: 100%;
+      width: auto;
       height: 100%;
     }
   }

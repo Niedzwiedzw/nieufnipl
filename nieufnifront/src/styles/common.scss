@@ -6,6 +6,7 @@
   }
 }
 
-$standard-minimal-width: 20rem;
+$standard-minimal-width: 17rem;
+$minimal-miniature-width: calc(1.25 * #{$standard-minimal-width});
 $article-width: calc(2.3 * #{$standard-minimal-width});
-$mobile-threshold: $article-width;
+$mobile-threshold: calc(#{$article-width} * 1.14);
