@@ -1,9 +1,9 @@
 <template>
-  <router-link class="ArticleMiniature hoverable" tag="div" :to="{name: 'singlearticle', params: {id: 1}}">
+  <router-link class="ArticleMiniature hoverable" tag="div" :to="{name: 'singlearticle', params: {articleId: article.id}}">
     <div class="img-container">
       <img src="https://i.ytimg.com/vi/W9t6GZ0vNPA/hqdefault.jpg" alt="miniatura">
     </div>
-    <h3 class="title">Artykul # {{article.id}}</h3>
+    <h3 class="title">Artykul #{{article.id}}</h3>
     <p class="short-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
   </router-link>
 </template>
@@ -16,11 +16,10 @@
         components: {},
     })
     export default class ArticleMiniature extends Vue {
-        @Prop(Number) protected articleId!: number;
-        private article!: Article;
+        @Prop() protected article!: Article;
 
-        protected beforeCreate() {
-            this.article = getArticle(this.articleId);
+        protected async beforeMount() {
+            this.article = await getArticle(this.article.id);
         }
     }
 </script>

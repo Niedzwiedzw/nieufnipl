@@ -1,25 +1,25 @@
 <template>
   <div class="SingleArticle">
     <p class="article-metadata">by {{article.author }} ~ {{article.date}}</p>
-    <div class="article-body">
-      {{article.markdownText}}
+    <div class="article-body" v-html="article.rendered_text">
+      <!--{{article.rendered_text}}-->
     </div>
   </div>
 </template>
 
 <script lang="ts">
     import {Component, Vue, Prop} from 'vue-property-decorator';
-    import { Article, getArticle } from '@/common';
+    import {Article, emptyArticle, getArticle} from '@/common';
 
     @Component({
         components: {},
     })
     export default class SingleArticle extends Vue {
-        @Prop({default: 0}) protected articleId!: number;
-        private article!: Article;
+        @Prop(String) protected articleId!: string;
+        private article!: Article = emptyArticle();
 
-        protected beforeCreate() {
-            this.article = getArticle(this.articleId);
+        protected async beforeMount() {
+            this.article = await getArticle(this.articleId);
         }
     }
 </script>
@@ -52,6 +52,4 @@
           "body";
     }
   }
-
-
 </style>

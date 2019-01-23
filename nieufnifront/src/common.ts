@@ -1,16 +1,31 @@
+import { API_BASE } from '@/config';
+
 export interface Article {
-    id: number;
+    id: string;
+    title: string;
     date: string;
     author: string;
-    markdownText: string;
+    markdown_text: string;
+    rendered_text: string;
 }
 
-export function getArticle(id: number): Article {
+export function emptyArticle(): Article {
     return {
-        id,
-        date: `${id}.03.2002`,
-        author: 'niedzwiedz',
-        markdownText: `#Artykul #${id}\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus, ex expedita hic inventore placeat praesentium quam tempore! Deserunt dicta fuga inventore laborum maxime minima modi mollitia pariatur recusandae voluptates!`,
-    };
+        id: '',
+        title: '',
+        date: '',
+        author: '',
+        markdown_text: '',
+        rendered_text: '',
+    }
 }
 
+export async function getArticle(id: string): Promise<Article> {
+    const response = await fetch(`${API_BASE}/artykuly/${id}`);
+    return await response.json();
+}
+
+export async function allArticles(): Promise<Article[]> {
+    const response = await fetch(`${API_BASE}/artykuly`);
+    return await response.json();
+}
