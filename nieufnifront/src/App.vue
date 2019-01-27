@@ -11,13 +11,15 @@
     import { Component, Vue } from 'vue-property-decorator';
 
     import Navbar from './components/Navbar.vue';
+    import { setMeta } from '@/config';
 
     @Component({
         components: {
             Navbar,
         },
     })
-    export default class App extends Vue {}
+    export default class App extends Vue {
+    }
 </script>
 
 <style lang="scss">

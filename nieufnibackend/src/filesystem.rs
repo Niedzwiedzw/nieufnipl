@@ -1,4 +1,4 @@
-use std::fs::read_dir;
+use std::fs::{ read_dir, read_to_string };
 use crate::config;
 
 //pub fn all_files() -> Vec<String> {
@@ -18,4 +18,6 @@ pub fn article_files() -> Vec<String> {
         .collect()
 }
 
-
+pub fn index_file() -> String {
+    read_to_string("../nieufnifront/dev/index.html").expect("index.html is not present")
+}

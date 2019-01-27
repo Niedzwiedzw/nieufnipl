@@ -16,7 +16,7 @@
         },
     })
     export default class ArticleContainer extends Vue {
-        private articles!: Article[] = [];
+        private articles: Article[] = [];
 
         protected async beforeMount() {
             this.articles = await allArticles();

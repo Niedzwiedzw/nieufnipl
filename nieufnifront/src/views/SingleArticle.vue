@@ -16,7 +16,7 @@
     })
     export default class SingleArticle extends Vue {
         @Prop(String) protected articleId!: string;
-        private article!: Article = emptyArticle();
+        private article: Article = emptyArticle();
 
         protected async beforeMount() {
             this.article = await getArticle(this.articleId);

@@ -3,8 +3,12 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
+import {setDefaultMeta} from '@/config';
 
 Vue.config.productionTip = false;
+
+setDefaultMeta();  // for facebook scrapers
+
 
 new Vue({
   router,

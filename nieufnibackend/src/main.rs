@@ -1,21 +1,35 @@
 #![feature(proc_macro_hygiene, decl_macro)]
-
-use rocket::{get, ignite, routes };
+use rocket::{
+    get, ignite, routes,
+    http::uri::Segments,
+    Catcher,
+    response::content::Html,
+};
 use rocket_contrib::{
     json::Json,
     serve::StaticFiles,
 };
-use serde::{Deserialize, Serialize};
-
-use std::io::{self, Write};
+use crate::guards::WebCrawlerAgent;
+use crate::filesystem::index_file;
 
 mod models;
 mod filesystem;
 mod config;
+mod guards;
 
 #[get("/")]
-fn index() -> &'static str {
+fn api_index() -> &'static str {
     "Nieufne API 0.1!"
+}
+
+#[get("/", rank=0)]
+fn crawler_metadata(agent: WebCrawlerAgent) -> &'static str {
+    "Hello bot..."
+}
+
+#[get("/<path..>", rank=99)]
+fn home(path: Segments) -> Html<String> {
+    Html(index_file())
 }
 
 #[get("/artykuly/<id>")]
@@ -34,6 +48,8 @@ fn all_articles() -> Json<Vec<models::Article>> {
 fn main() {
     ignite()
         .mount("/", StaticFiles::from("../nieufnifront/dev"))
-        .mount("/api/", routes![index, article, all_articles])
+        .mount("/", routes![home])
+        .mount("/", routes![crawler_metadata])
+        .mount("/api/", routes![api_index, article, all_articles])
         .launch();
 }

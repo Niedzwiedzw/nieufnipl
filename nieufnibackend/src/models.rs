@@ -44,7 +44,7 @@ impl Article {
         let mut file = File::open(path).unwrap();
         let mut content = String::new();
 
-        file.read_to_string(&mut content);
+        file.read_to_string(&mut content).expect("failed to read article file");
 
         let mut article_data = content.splitn(2,METADATA_SPLIT);
         let metedata = article_data.next().unwrap();
