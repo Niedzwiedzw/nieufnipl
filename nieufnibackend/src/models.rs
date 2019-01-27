@@ -59,7 +59,7 @@ impl Article {
 
         let name = filename(&path);
 
-        Article {
+        Self {
             id: String::from(article_id(name)),
             title,
             date,
@@ -70,14 +70,18 @@ impl Article {
         }
     }
 
-    pub fn all_articles() -> Vec<Article> {
+    pub fn all_articles() -> Vec<Self> {
         article_files()
             .iter()
-            .map(|file| Article::from_file(file))
+            .map(|file| Self::from_file(file))
             .collect()
     }
 
-    pub fn bad_article() -> Article {
+    pub fn get(id: &str) -> Option<Self> {
+        Self::all_articles().into_iter().find(|a| a.id == id)
+    }
+
+    pub fn bad_article() -> Self {
         Self::all_articles()
             .into_iter()
             .find(|article| article.id == "zly-artykul")
