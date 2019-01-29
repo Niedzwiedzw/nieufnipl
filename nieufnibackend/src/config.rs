@@ -14,3 +14,5 @@ pub const STATIC_FILE_POSTFIXES: [&'static str; 6] = [
 pub fn is_crawler(user_agent: &&str) -> bool {
     CRAWLER_PREFIXES.iter().any(|entry| user_agent.starts_with(entry))
 }
+
+pub const HASH_SALT: &'static str = "nieufnipl";

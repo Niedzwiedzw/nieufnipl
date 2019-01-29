@@ -41,6 +41,7 @@
   @media only screen and (max-width: $mobile-threshold) {
     .home {
       grid-template-rows: $sidebar-height 1fr;
+      grid-template-columns: 1fr;
       grid-template-areas:
           "sidebar sidebar"
           "articles articles"

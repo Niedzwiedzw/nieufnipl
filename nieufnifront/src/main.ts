@@ -3,12 +3,11 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
-import {setDefaultMeta} from '@/config';
 
 Vue.config.productionTip = false;
+import VueDisqus from 'vue-disqus';
 
-setDefaultMeta();  // for facebook scrapers
-
+Vue.use(VueDisqus);
 
 new Vue({
   router,

@@ -7,6 +7,11 @@
 }
 
 $standard-minimal-width: 17rem;
-$minimal-miniature-width: calc(1.25 * #{$standard-minimal-width});
+
+$article-miniature-height: 10rem;
+$minimal-miniature-width: calc(2 * #{$article-miniature-height});
+
+$page-content-max-width: calc(#{$minimal-miniature-width} * 4);
+
 $article-width: calc(2.3 * #{$standard-minimal-width});
 $mobile-threshold: calc(#{$article-width} * 1.14);

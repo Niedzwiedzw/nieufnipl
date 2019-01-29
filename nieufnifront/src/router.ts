@@ -18,7 +18,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "articles" */ './views/Articles.vue'),
+      component: () => import(/* webpackChunkName: "artykuly" */ './views/Articles.vue'),
     },
     {
       path: '/kontakt',
@@ -26,7 +26,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue'),
+      component: () => import(/* webpackChunkName: "kontakt" */ './views/Contact.vue'),
     },
     {
       path: '/redakcja',
@@ -43,7 +43,15 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "redakcja" */ './views/SingleArticle.vue'),
+      component: () => import(/* webpackChunkName: "artykul" */ './views/SingleArticle.vue'),
+    },
+    {
+      path: '/redakcja/nowy-artykul',
+      name: 'articlecreate',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "nowyartykul" */ './views/CreateArticle.vue'),
     },
   ],
 });

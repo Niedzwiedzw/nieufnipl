@@ -25,6 +25,8 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../styles/common.scss";
+
   .title {
     grid-area: title;
     margin-left: 1rem;
@@ -42,8 +44,8 @@
     grid-area: image;
     img {
       object-fit: cover;
-      width: auto;
-      height: 100%;
+      width: $article-miniature-height;
+      height: $article-miniature-height;
     }
   }
 
@@ -53,7 +55,7 @@
     grid-template-areas:
         "image title"
         "image text";
-    grid-template-columns: 10rem 1fr;
-    grid-template-rows: 1.8rem 1fr;
+    grid-template-columns: $article-miniature-height 1fr;
+    grid-template-rows: 4rem 1fr;
   }
 </style>

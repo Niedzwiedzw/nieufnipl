@@ -11,22 +11,18 @@
     import { Component, Vue } from 'vue-property-decorator';
 
     import Navbar from './components/Navbar.vue';
-    import { setMeta } from '@/config';
 
     @Component({
         components: {
             Navbar,
         },
     })
-    export default class App extends Vue {
-    }
+    export default class App extends Vue {}
 </script>
 
 <style lang="scss">
   @import './styles/common';
   @import './styles/colors';
-
-  /*prevent default link decoration*/
 
   #app {
     width: 100%;
@@ -44,6 +40,7 @@
     width: 100%;
     height: 100%;
     margin: 0;
+    padding: 0;
     font-family: 'VT323', monospace;
 
     background-color: $primary-white;
