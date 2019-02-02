@@ -30,9 +30,10 @@
 
   .ArticleContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($minimal-miniature-width, 1fr));
-    grid-auto-rows: 8rem;
+    grid-template-columns: repeat(auto-fill, minmax($minimal-miniature-width, 1fr));
+    grid-auto-rows: $article-miniature-height;
     grid-gap: 1rem;
     grid-area: articles;
+    justify-content: center;
   }
 </style>

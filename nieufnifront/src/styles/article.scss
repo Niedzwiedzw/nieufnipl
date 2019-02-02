@@ -1,0 +1,8 @@
+@import "./common.scss";
+
+.article-body {
+  & img {
+    max-width: $article-width;
+    height: auto;
+  }
+}

@@ -9,7 +9,10 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@types/showdown": "^1.9.2",
+    "moment": "^2.24.0",
     "register-service-worker": "^1.5.2",
+    "showdown": "^1.9.0",
     "vue": "^2.5.21",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
