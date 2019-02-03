@@ -20,6 +20,9 @@ mod schema;
 #[allow(unused_imports)]
 #[macro_use] extern crate slugify;
 
+
+#[macro_use] extern crate lazy_static;
+
 use crate::guards::WebCrawlerAgent;
 use crate::filesystem::index_file;
 use crate::guards::NotStaticFile;
@@ -52,9 +55,14 @@ fn crawler_metadata(path: Segments, _agent: WebCrawlerAgent) -> Html<String> {
         None => models::Article::bad_article(),
     };
 
+    let image_url = match article.showcase_image() {
+        Some(image) => image,
+        None => String::from("https://i.ytimg.com/vi/W9t6GZ0vNPA/hqdefault.jpg"),
+    };
+
     let response = crawler_response(
         String::from("article"),
-        String::from("https://i.ytimg.com/vi/W9t6GZ0vNPA/hqdefault.jpg"),
+        image_url,
         article.title.clone(),
         format!("www.nieufni.pl/{}", article.id),
         article.rendered_text.clone()
@@ -113,7 +121,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                         "--list-authors" => {
                             println!("users: {:#?}", Author::all());
                             return Ok(())
-                        },
+                        }
                         _ => panic!("invalid argument!"),
                     }
                 }

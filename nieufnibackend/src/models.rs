@@ -3,6 +3,7 @@ use std::fmt;
 use serde::{Deserialize, Serialize};
 use comrak::{ markdown_to_html, ComrakOptions };
 use diesel::prelude::*;
+use regex::Regex;
 
 use crate::schema::articles::dsl as articles_dsl;
 use crate::schema::authors::dsl as authors_dsl;
@@ -185,6 +186,19 @@ impl Article {
 
     pub fn bad_article() -> Self {
         Self::get("zly-artykul").expect("couldn't find a 404 article")
+    }
+
+    pub fn showcase_image(&self) -> Option<String> {
+        self.images().into_iter().nth(0)
+    }
+
+    pub fn images(&self) -> Vec<String> {
+        lazy_static! {
+            static ref RE: Regex = Regex::new(r"(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)")
+            .expect("regex is correct");
+        }
+
+        RE.find_iter(&self.markdown_text.as_str()).map(|m| String::from(m.as_str())).collect()
     }
 }
 
