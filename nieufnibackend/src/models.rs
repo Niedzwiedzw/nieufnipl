@@ -104,6 +104,7 @@ pub struct ArticleResponse {
     pub date: String,
     pub author_name: String,
     pub rendered_text: String,
+    pub markdown_text: String,
 }
 
 impl From<Article> for ArticleResponse {
@@ -119,6 +120,7 @@ impl From<Article> for ArticleResponse {
             date: article.date,
             author_name: author.name,
             rendered_text: article.rendered_text,
+            markdown_text: article.markdown_text,
         }
     }
 }

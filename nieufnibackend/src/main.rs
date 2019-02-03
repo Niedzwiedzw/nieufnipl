@@ -79,16 +79,16 @@ fn home(path: Segments, _is_static: NotStaticFile) -> Html<String> {
 }
 
 #[get("/artykuly/<id>")]
-fn article(id: String) -> Option<Json<models::Article>> {
+fn article(id: String) -> Option<Json<models::ArticleResponse>> {
     match models::Article::get(&id) {
-        Some(article) => Some(Json(article)),
+        Some(article) => Some(Json(article.into())),
         None =>  None,
     }
 }
 
 #[get("/artykuly")]
-fn all_articles() -> Json<Vec<models::Article>> {
-    Json(models::Article::all_articles())
+fn all_articles() -> Json<Vec<models::ArticleResponse>> {
+    Json(models::Article::all_articles().into_iter().map(|a| a.into()).collect())
 }
 
 #[post("/artykuly", data = "<article>", format="application/json")]

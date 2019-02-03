@@ -16,9 +16,9 @@ export interface Article {
     id: string;
     title: string;
     date: string;
-    author: string;
-    markdown_text: string;
+    author_name: string;
     rendered_text: string;
+    markdown_text: string;
 }
 
 export interface ArticleCreated {
@@ -38,9 +38,9 @@ export function emptyArticle(): Article {
         id: '',
         title: '',
         date: '',
-        author: '',
-        markdown_text: '',
+        author_name: '',
         rendered_text: '',
+        markdown_text: '',
     };
 }
 
