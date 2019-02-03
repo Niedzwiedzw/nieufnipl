@@ -37,9 +37,10 @@
             '\n' +
             'edytuj se to\n' +
             '\n' +
+            '## link do obrazka musi sie konczyc na jpg png albo gif XDD' +
+            '\n' +
             '![masujemy]' +
-            '(https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/30709455_10204563936054577_2661861064651571200_n.jpg' +
-            '?_nc_cat=110&_nc_ht=scontent-frt3-2.xx&oh=144a56a964b27ff7bb4a7f7ac5885eed&oe=5CFFFD10)\n' +
+            '(https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg)\n' +
             'Format: ![Alt Text](url)\n';
         private converter = new showdown.Converter();
         public get renderedText(): string { return this.converter.makeHtml(this.textInput); }

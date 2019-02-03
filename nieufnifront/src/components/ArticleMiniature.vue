@@ -4,7 +4,7 @@
                :to="{name: 'singlearticle', params: {articleId: article.id}}"
   >
     <div class="img-container">
-      <img src="https://i.ytimg.com/vi/W9t6GZ0vNPA/hqdefault.jpg" alt="miniatura">
+      <img :src="article.image" alt="miniatura">
     </div>
     <h3 class="title">{{article.title}}</h3>
     <p class="short-text">{{ articleSummary }}</p>

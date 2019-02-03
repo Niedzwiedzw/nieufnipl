@@ -19,6 +19,7 @@ export interface Article {
     author_name: string;
     rendered_text: string;
     markdown_text: string;
+    image: string;
 }
 
 export interface ArticleCreated {
@@ -41,6 +42,7 @@ export function emptyArticle(): Article {
         author_name: '',
         rendered_text: '',
         markdown_text: '',
+        image: 'https://i.ytimg.com/vi/W9t6GZ0vNPA/hqdefault.jpg',
     };
 }
 

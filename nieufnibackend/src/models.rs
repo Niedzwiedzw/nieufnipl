@@ -105,6 +105,7 @@ pub struct ArticleResponse {
     pub author_name: String,
     pub rendered_text: String,
     pub markdown_text: String,
+    pub image: String,
 }
 
 impl From<Article> for ArticleResponse {
@@ -115,12 +116,16 @@ impl From<Article> for ArticleResponse {
             .expect("Database integrity compromised: could not find associated author.");
 
         ArticleResponse {
-            id: article.id,
-            title: article.title,
-            date: article.date,
-            author_name: author.name,
-            rendered_text: article.rendered_text,
-            markdown_text: article.markdown_text,
+            id: article.id.clone(),
+            title: article.title.clone(),
+            date: article.date.clone(),
+            author_name: author.name.clone(),
+            rendered_text: article.rendered_text.clone(),
+            markdown_text: article.markdown_text.clone(),
+            image: match article.showcase_image() {
+                Some(l) => l,
+                None => String::from("https://i.ytimg.com/vi/W9t6GZ0vNPA/hqdefault.jpg"),
+            }
         }
     }
 }
