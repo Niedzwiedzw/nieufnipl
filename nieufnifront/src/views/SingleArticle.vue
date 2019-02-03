@@ -1,6 +1,6 @@
 <template>
   <div class="SingleArticle">
-    <p class="article-metadata">by {{article.author }} ~ {{ creationTime }}</p>
+    <p class="article-metadata">by {{ article.author }} ~ {{ creationTime }}</p>
     <div class="article-body" v-html="article.rendered_text">
       <!--{{article.rendered_text}}-->
     </div>
