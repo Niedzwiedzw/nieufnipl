@@ -5,9 +5,7 @@ import store from './store';
 import './registerServiceWorker';
 
 Vue.config.productionTip = false;
-import VueDisqus from 'vue-disqus';
 
-Vue.use(VueDisqus);
 
 new Vue({
   router,
