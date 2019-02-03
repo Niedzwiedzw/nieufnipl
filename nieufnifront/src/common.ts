@@ -1,4 +1,5 @@
 import { API_BASE } from '@/config';
+import { slice, split, filter, join } from 'lodash';
 
 export interface NewArticleData {
     username: string;
@@ -30,20 +31,6 @@ export interface ArticleCreated {
 
     username: string;
     password: string;
-}
-
-function capitalizeFirstLetter(word: string) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-}
-
-export class Metatag {
-    constructor(public property: string, public content: string) {}
-    public get asHtml(): string { return `<meta property="og:${this.property}" content="${this.content}">`; }
-    public inject() { document.head.innerHTML += this.asHtml; }
-}
-
-export function humanTitle(title: string): string {
-    return title.split('-').map(capitalizeFirstLetter).join(' ');
 }
 
 export function emptyArticle(): Article {
@@ -79,7 +66,6 @@ export async function post(url: string, data: object, username?: string, passwor
         headers['not-trustworthy-password'] = password;
     }
     const jsonData = JSON.stringify(data);
-    console.log('sending', data, jsonData);
 
     fetch(url,
         {
@@ -87,6 +73,7 @@ export async function post(url: string, data: object, username?: string, passwor
             headers,
             body: jsonData,
         }).then((response) => response.ok)
+        // tslint:disable-next-line:no-console
         .catch((e) => console.error(e));
 }
 
@@ -115,4 +102,10 @@ export async function sendArticle(
         console.error(e);
         return false;
     }
+}
+
+export function articleSummary(article: Article): string {
+    const description = article.markdown_text;
+    const aftertitle = filter(split(description, '\n'))[1];
+    return join(slice(aftertitle, 0, 120), '') + '...';
 }

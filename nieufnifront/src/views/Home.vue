@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <ArticleContainer/>
-    <Sidebar/>
+    <!--<Sidebar/>-->
   </div>
 </template>
 
@@ -23,28 +23,28 @@
 </script>
 <style lang="scss" scoped>
   @import "../styles/common";
+  @import "../styles/navbar";
+
 
   $sidebar-height: 25rem;
 
   .home {
     display: grid;
-    height: calc(100vh - calc(3rem + 4rem));
-    grid-template-columns: 1fr $standard-minimal-width;
-    grid-template-rows: 1fr $sidebar-height;
+    height: calc(100vh - #{$navbar-height});
+    grid-template-columns: 1fr $site-width 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas:
-        "articles sidebar"
-        "articles sidebar";
+        "left articles right";
 
     grid-gap: 1.5rem;
   }
 
-  @media only screen and (max-width: $mobile-threshold) {
+  @media only screen and (max-width: $site-width) {
     .home {
-      grid-template-rows: $sidebar-height 1fr;
+      grid-template-rows: 1fr;
       grid-template-columns: 1fr;
       grid-template-areas:
-          "sidebar sidebar"
-          "articles articles"
+          "articles"
     }
   }
 </style>

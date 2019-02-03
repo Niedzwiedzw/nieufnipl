@@ -23,13 +23,14 @@
 <style lang="scss">
   @import './styles/common';
   @import './styles/colors';
+  @import './styles/navbar.scss';
 
   #app {
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 4rem 1fr
+    grid-template-rows: $navbar-height 1fr
   }
 
   #page {
@@ -41,7 +42,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'VT323', monospace;
+    font-family: 'Playfair Display', serif;
 
     background-color: $primary-white;
   }
@@ -51,4 +52,12 @@
       padding: 0.8rem;
     }
   }
+
+
+
+  *::-moz-focus-inner {
+    border: 0;
+  }
+  *:focus {outline:none;}
+
 </style>

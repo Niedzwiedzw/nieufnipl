@@ -1,10 +1,11 @@
 .hoverable {
   cursor: pointer;
-  transition: opacity 300ms;
+  transition: opacity 150ms;
   &:hover {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
+
 
 $standard-minimal-width: 17rem;
 
@@ -14,4 +15,7 @@ $minimal-miniature-width: calc(2 * #{$article-miniature-height});
 $page-content-max-width: calc(#{$minimal-miniature-width} * 4);
 
 $article-width: calc(2.3 * #{$standard-minimal-width});
+
+$site-width: calc(1.5 * #{$article-width});
+
 $mobile-threshold: calc(#{$article-width} * 1.14);

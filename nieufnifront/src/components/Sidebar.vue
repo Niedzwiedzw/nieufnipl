@@ -16,13 +16,15 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../styles/navbar";
+
   .Sidebar {
     grid-area: sidebar;
     border: 2px solid black;
     display: grid;
     align-content: center;
     justify-content: center;
-    height: 100%;
+    height: $navbar-height;
     width: 100%;
   }
 </style>

@@ -1,21 +1,27 @@
 <template>
-  <div class="home">
-
-    <h1>Kontakt</h1>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi culpa deleniti deserunt dicta ea esse ex, id illum inventore labore maiores officiis quasi qui quia quis, temporibus totam voluptatum!</p>
+  <div class="contact">
+    <div class="container">
+      <h1>Kontakt</h1>
+      <p>mail: niedzwiedzwo@gmail.com</p>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+    import { Component, Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {
-  },
-})
-export default class Home extends Vue {}
+    @Component({
+        components: {
+        },
+    })
+    export default class Home extends Vue {}
 </script>
 <style lang="scss">
+  @import '../styles/common';
 
+  .contact {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
 </style>
